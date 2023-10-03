@@ -82,9 +82,9 @@ export default function Sign() {
       try {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
-        // Handle successful sign-in
+        router.push(`/dashboard?name=${encodeURIComponent(user.email)}`);
       } catch (error) {
-        // Handle sign-in error
+        throw new error
       }
     };
     
